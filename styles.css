@@ -1,0 +1,41 @@
+:root { --navy: #13294b; --orange: #ed7d31; --r-background-color: #151e2c; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: #151e2c; color: #fff; font-family: Arial, sans-serif; }
+.reveal { height: calc(100% - 54px); background: #151e2c; }
+.reveal .slides { text-align: left; }
+.reveal .slides > section { width: 1280px; height: 720px; padding: 0; overflow: hidden; background: #fff; }
+.reveal h1, .reveal p { margin: 0; font-family: Arial, sans-serif; letter-spacing: normal; text-transform: none; }
+.reveal .progress { height: 3px; color: var(--orange); }
+.reveal .slides > .cover { background: var(--navy); }
+.reveal .cover-photo { position: absolute; left: 50%; top: 0; width: 50%; height: 100%; margin: 0; max-width: none; max-height: none; object-fit: cover; object-position: 70% center; }
+.cover-copy { position: absolute; inset: 0 50% 0 0; padding: 88px 60px 74px 69.12px; }
+.reveal .course-code { color: #fff; font-size: 30px; line-height: 1.2; margin-bottom: 32px; }
+.reveal .cover h1 { color: var(--orange); font-size: 76px; line-height: 1.12; font-weight: 400; }
+.reveal .cover-topic { margin-top: 30px; color: #fff; font-size: 36px; line-height: 1.2; font-style: italic; }
+.reveal .cover-week { margin-top: 18px; color: #fff; font-size: 28px; line-height: 1.2; }
+.reveal .cover-author { position: absolute; left: 69.12px; bottom: 78px; color: #fff; font-size: 27px; line-height: 1.25; }
+.reveal .slide-heading { position: absolute; left: 97.92px; top: 77px; width: 1084px; color: #000; font-size: 52px; line-height: 1.15; font-weight: 400; }
+.web-panel { position: absolute; left: 6.9%; top: 26.666667%; width: 86.25%; height: 64%; z-index: 3; display: flex; flex-direction: column; background: #fff; border: 1px solid #bdc8d5; border-radius: 5px; overflow: hidden; }
+.web-toolbar { height: 40px; min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 5px 8px; background: #eff3f7; color: #263f5b; font: 13px Arial, sans-serif; }
+.web-label { flex: 1; min-width: 0; text-align: left; }
+.web-toolbar button, .web-toolbar a { flex-shrink: 0; padding: 5px 9px; border: 1px solid #bac7d5; border-radius: 4px; color: #173653; background: #fff; font: 13px Arial, sans-serif; cursor: pointer; text-decoration: none; }
+.web-toolbar button:hover, .web-toolbar a:hover { background: #dfeaf5; }
+.web-toolbar :focus-visible, .deck-controls button:focus-visible { outline: 3px solid var(--orange); outline-offset: 1px; }
+.web-viewport { position: relative; flex: 1; min-height: 0; }
+.web-viewport iframe { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; border: 0; margin: 0; background: #fff; }
+.web-loading { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; padding: 40px; text-align: center; font: 19px/1.5 Arial, sans-serif; color: #405366; background: #fff; pointer-events: none; }
+.web-loading[hidden] { display: none; }
+.web-panel.is-expanded { left: 1%; top: 1%; width: 98%; height: 98%; z-index: 10; }
+.reveal.overview .web-panel { pointer-events: none; }
+.reveal.overview .web-panel iframe { visibility: hidden; }
+.deck-controls { position: fixed; bottom: 0; left: 0; width: 100%; height: 54px; z-index: 50; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px; background: #151e2c; font: 14px Arial, sans-serif; }
+.deck-controls button { color: #fff; background: #ffffff0d; border: 1px solid #ffffff26; border-radius: 5px; cursor: pointer; min-width: 38px; height: 36px; padding: 0 12px; font: 14px Arial, sans-serif; }
+.deck-controls button#previous, .deck-controls button#next { font-size: 28px; padding: 0 8px; }
+.deck-controls button:hover { background: #ffffff20; }
+.deck-controls button:disabled { opacity: .3; cursor: default; }
+.divider { width: 1px; height: 22px; background: #ffffff33; margin: 0 5px; }
+#counter { min-width: 56px; text-align: center; color: #fff; }
+#notice { position: fixed; bottom: 64px; left: 50%; transform: translateX(-50%); z-index: 60; padding: 12px 18px; max-width: 80vw; background: var(--navy); border-radius: 6px; font: 15px/1.4 Arial, sans-serif; }
+@media (max-width: 480px) { .deck-controls { gap: 4px; } .deck-controls button { padding: 0 7px; font-size: 12px; } .divider { margin: 0; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
