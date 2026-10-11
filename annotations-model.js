@@ -1,4 +1,5 @@
-const SLIDE_KEY = /^slide-[1-5](?::expanded)?$/;
+// Keep existing interactive slide keys stable so saved version-1 ink stays put.
+const SLIDE_KEY = /^(?:slide-[1-5](?::expanded)?|question-[1235])$/;
 const MAX_STROKES = 5000;
 const MAX_POINTS = 200000;
 const MAX_COORDINATE = 1e7;
