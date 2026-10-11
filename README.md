@@ -1,12 +1,16 @@
 # CE2407A Tutorial 1
 
-Five web slides for Tutorial 1, Week 9.
+Nine web slides for Tutorial 1, Week 9.
 
 1. Tutorial 1
-2. Q1: Highway routes and travel times
-3. Q2: Wind speed and direction
-4. Q3: Power plant reliability
-5. Q5: Pavement performance
+2. Q1: Original question statement
+3. Q1: Highway routes and travel times
+4. Q2: Original question statement
+5. Q2: Wind speed and direction
+6. Q3: Original question statement
+7. Q3: Power plant reliability
+8. Q5: Original question statement
+9. Q5: Pavement performance
 
 ## Present
 
@@ -30,7 +34,11 @@ Run `npm test` with Node.js to check annotation history, storage validation, coo
 
 ## Design and assets
 
-The 1280 × 720 layout, navy and orange palette, Arial type, embedded webpage panels and navigation follow [CE2134-TTG-Workshop](https://github.com/jiaruilei/CE2134-TTG-Workshop), as requested. The cover photograph is reused from that repository’s `image1.JPG`. Reveal.js is bundled with its license in `LICENSE-reveal.txt`.
+The 1280 × 720 layout, navy and orange palette, Arial type, embedded webpage panels and navigation follow [CE2134-TTG-Workshop](https://github.com/jiaruilei/CE2134-TTG-Workshop), as requested. The cover QR code links to the first slide and includes a four-module quiet zone. Reveal.js is bundled with its license in `LICENSE-reveal.txt`.
+
+Question statements and diagrams are cropped from the supplied `CE2407A Tutorial Questions Set 1.pdf` (pages 1–3). Every crop is rendered at 288 dpi and displayed at 2 CSS pixels per PDF point, preserving the same scale across all four questions. Q2 combines material from pages 1 and 2. Cropped parts are arranged to fit one slide without changing their individual scale.
+
+Statement slides use stable IDs `question-1`, `question-2`, `question-3` and `question-5`. Existing cover and interactive slide IDs remain unchanged so saved annotations and direct links still refer to the same content.
 
 ## Publish
 

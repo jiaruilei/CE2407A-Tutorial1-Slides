@@ -8,7 +8,9 @@ body { background: #151e2c; color: #fff; font-family: Arial, sans-serif; }
 .reveal h1, .reveal p { margin: 0; font-family: Arial, sans-serif; letter-spacing: normal; text-transform: none; }
 .reveal .progress { height: 3px; color: var(--orange); }
 .reveal .slides > .cover { background: var(--navy); }
-.reveal .cover-photo { position: absolute; left: 50%; top: 0; width: 50%; height: 100%; margin: 0; max-width: none; max-height: none; object-fit: cover; object-position: 70% center; }
+.reveal .slides .cover-qr { position: absolute; inset: 0 0 0 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; color: #fff; text-decoration: none; font: 28px Arial, sans-serif; }
+.reveal .cover-qr img { width: 400px; height: 400px; margin: 0; max-width: none; max-height: none; }
+.cover-qr:focus-visible { outline: 4px solid var(--orange); outline-offset: -12px; }
 .cover-copy { position: absolute; inset: 0 50% 0 0; padding: 88px 60px 74px 69.12px; }
 .reveal .course-code { color: #fff; font-size: 30px; line-height: 1.2; margin-bottom: 32px; }
 .reveal .cover h1 { color: var(--orange); font-size: 76px; line-height: 1.12; font-weight: 400; }
@@ -16,6 +18,9 @@ body { background: #151e2c; color: #fff; font-family: Arial, sans-serif; }
 .reveal .cover-week { margin-top: 18px; color: #fff; font-size: 28px; line-height: 1.2; }
 .reveal .cover-author { position: absolute; left: 69.12px; bottom: 78px; color: #fff; font-size: 27px; line-height: 1.25; }
 .reveal .slide-heading { position: absolute; left: 97.92px; top: 77px; width: 1084px; color: #000; font-size: 52px; line-height: 1.15; font-weight: 400; }
+.reveal .question-statement .slide-heading { top: 32px; }
+/* All PDF crops use the same scale: 2 CSS px per PDF point, with 2x raster assets. */
+.reveal .question-crop { position: absolute; margin: 0; max-width: none; max-height: none; border: 0; }
 .web-panel { position: absolute; left: 6.9%; top: 26.666667%; width: 86.25%; height: 64%; z-index: 3; display: flex; flex-direction: column; background: #fff; border: 1px solid #bdc8d5; border-radius: 5px; overflow: hidden; }
 .web-toolbar { height: 40px; min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 5px 8px; background: #eff3f7; color: #263f5b; font: 13px Arial, sans-serif; }
 .web-label { flex: 1; min-width: 0; text-align: left; }

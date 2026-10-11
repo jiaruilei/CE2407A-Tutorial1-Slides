@@ -77,6 +77,31 @@ test('serialized current ink round-trips, preserves document coordinates and res
   assert.equal(destination.get('slide-3:expanded').length, 0);
 });
 
+test('question statement slides preserve legacy saved ink and keep independent editable histories', () => {
+  const legacyKeys = ['slide-1', 'slide-2', 'slide-3', 'slide-4', 'slide-5',
+    'slide-2:expanded', 'slide-3:expanded', 'slide-4:expanded', 'slide-5:expanded'];
+  const legacy = { version: 1, slides: Object.fromEntries(legacyKeys.map(key => [key, [stroke(`old-${key}`)]])) };
+  const history = new InkHistory();
+  assert.equal(history.load(JSON.stringify(legacy)), true);
+  const questionKeys = ['question-1', 'question-2', 'question-3', 'question-5'];
+  for (const key of questionKeys) {
+    assert.equal(history.add(key, stroke(`new-${key}`)), true);
+    assert.equal(history.clear(key), true);
+    assert.equal(history.get(key).length, 0);
+    assert.equal(history.undo(key), true);
+    assert.equal(history.get(key)[0].id, `new-${key}`);
+    assert.equal(history.redo(key), true);
+    assert.equal(history.undo(key), true);
+  }
+  for (const key of legacyKeys) assert.deepEqual(history.get(key), legacy.slides[key]);
+  const saved = history.serialize(), restored = new InkHistory();
+  assert.equal(saved.version, 1);
+  assert.equal(restored.load(JSON.stringify(saved)), true);
+  assert.deepEqual(restored.serialize(), saved);
+  for (const key of questionKeys) assert.equal(restored.get(key)[0].id, `new-${key}`);
+  for (const key of legacyKeys) assert.deepEqual(restored.get(key), legacy.slides[key]);
+});
+
 test('invalid loads are atomic and cannot inject keys, bad coordinates or extra stroke properties', () => {
   const history = new InkHistory();
   history.add('slide-1', stroke('existing'));
@@ -85,6 +110,7 @@ test('invalid loads are atomic and cannot inject keys, bad coordinates or extra 
     '{bad JSON', null, { version: 2, slides: {} }, { version: 1, slides: [] },
     { version: 1, slides: new Date() }, { version: 1, slides: new Map() },
     { version: 1, slides: { 'slide-6': [] } }, { version: 1, slides: { 'slide-2:other': [] } },
+    { version: 1, slides: { 'question-4': [] } }, { version: 1, slides: { 'question-1:expanded': [] } },
     JSON.parse('{"version":1,"slides":{"__proto__":[]}}'),
     { version: 1, slides: { 'slide-2': [stroke('valid')], 'slide-3': [stroke('invalid', [{ x: Infinity, y: 1 }])] } },
     { version: 1, slides: { 'slide-2': [stroke('a', [{ x: 1e7 + 1, y: 0 }])] } },
