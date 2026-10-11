@@ -8,6 +8,7 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="reveal.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="annotations.css">
 </head>
 <body>
 <main class="reveal" aria-label="CE2407A Tutorial 1 presentation">
@@ -89,11 +90,37 @@
   <span id="counter" aria-live="polite">1 / 5</span>
   <button id="next" type="button" aria-label="Next slide" title="Next (Right arrow)">›</button>
   <span class="divider" aria-hidden="true"></span>
+  <button id="ink-toggle" type="button" aria-expanded="false" aria-controls="ink-toolbar" title="Annotation tools">Ink</button>
   <button id="overview" type="button" title="Slide overview (O)">Overview</button>
   <button id="fullscreen" type="button" title="Full screen (F)">Full screen</button>
 </nav>
+<div id="ink-toolbar" class="ink-toolbar" role="toolbar" aria-label="Annotation tools" hidden>
+  <div class="ink-tools" role="group" aria-label="Drawing tool">
+    <button type="button" data-ink-tool="pointer" aria-pressed="true" title="Use the interactive questions (Escape)">Pointer</button>
+    <button type="button" data-ink-tool="pen" aria-pressed="false" title="Draw with a pen">Pen</button>
+    <button type="button" data-ink-tool="highlighter" aria-pressed="false" title="Highlight without covering the text">Highlighter</button>
+    <button type="button" data-ink-tool="eraser" aria-pressed="false" title="Erase a whole stroke">Eraser</button>
+  </div>
+  <div class="ink-colors" role="group" aria-label="Ink color">
+    <button type="button" class="ink-color" data-ink-color="#e53935" style="--swatch:#e53935" aria-label="Red ink" aria-pressed="true" title="Red"></button>
+    <button type="button" class="ink-color" data-ink-color="#2563eb" style="--swatch:#2563eb" aria-label="Blue ink" aria-pressed="false" title="Blue"></button>
+    <button type="button" class="ink-color" data-ink-color="#172b4d" style="--swatch:#172b4d" aria-label="Dark ink" aria-pressed="false" title="Dark"></button>
+    <button type="button" class="ink-color" data-ink-color="#16834a" style="--swatch:#16834a" aria-label="Green ink" aria-pressed="false" title="Green"></button>
+    <button type="button" class="ink-color" data-ink-color="#ffd43b" style="--swatch:#ffd43b" aria-label="Yellow ink" aria-pressed="false" title="Yellow"></button>
+    <button type="button" class="ink-color" data-ink-color="#ffffff" style="--swatch:#ffffff" aria-label="White ink" aria-pressed="false" title="White"></button>
+  </div>
+  <select id="ink-width" aria-label="Ink thickness" title="Ink thickness">
+    <option value="2">Thin</option><option value="4" selected>Medium</option><option value="7">Thick</option>
+  </select>
+  <div class="ink-history" role="group" aria-label="Edit ink">
+    <button id="ink-undo" type="button" title="Undo ink (Ctrl+Z)" disabled>Undo</button>
+    <button id="ink-redo" type="button" title="Redo ink (Ctrl+Y)" disabled>Redo</button>
+    <button id="ink-clear" type="button" title="Clear ink in this view. Undo restores it." disabled>Clear ink</button>
+  </div>
+  <span id="ink-status" class="ink-sr-only" role="status" aria-live="polite"></span>
+</div>
 <div id="notice" role="status" hidden></div>
 <script src="reveal.js"></script>
-<script src="presentation.js"></script>
+<script type="module" src="presentation.js"></script>
 </body>
 </html>
