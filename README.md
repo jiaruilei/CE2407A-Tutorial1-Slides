@@ -16,6 +16,18 @@ Each question supports Expand webpage, Reload and Open question. Leaving a slide
 
 The live questions need an internet connection. They embed [CE2407A_Tutorial1](https://github.com/jiaruilei/CE2407A_Tutorial1) through its GitHub Pages site, with `question=q1` (or q2, q3, q5) and `embed=1`. The original tutorial handles MathJax and its Render-hosted AI chat. No API keys belong in this repository.
 
+## Annotate
+
+Select **Ink** in the bottom controls to open the annotation toolbar. Use Pen or Highlighter with a classroom pen, mouse or touch input. Choose a color and thickness. Eraser removes a whole stroke. Undo, Redo and Clear ink apply to the current slide view. Clearing is undoable.
+
+Choose **Pointer** or press Escape to interact with the question. Ink drawn over the embedded question follows its document as you scroll. Normal and expanded layouts keep separate ink because the question reflows when expanded. Full screen and window resizing preserve alignment. Ink remains visible when the toolbar is closed.
+
+Ink is saved automatically in this browser on this device. It is not synced to GitHub or other computers. If browser storage is unavailable, ink remains available while the tab stays open. Ctrl+Z undoes ink and Ctrl+Y (or Ctrl+Shift+Z) redoes it while the toolbar is open. Text fields retain normal editing shortcuts.
+
+The pen must send normal pen, mouse or touch input to the browser. This feature does not capture webcam video or require camera permission. Test the classroom device before teaching.
+
+Run `npm test` with Node.js to check annotation history, storage validation, coordinate scaling and stroke erasing.
+
 ## Design and assets
 
 The 1280 × 720 layout, navy and orange palette, Arial type, embedded webpage panels and navigation follow [CE2134-TTG-Workshop](https://github.com/jiaruilei/CE2134-TTG-Workshop), as requested. The cover photograph is reused from that repository’s `image1.JPG`. Reveal.js is bundled with its license in `LICENSE-reveal.txt`.

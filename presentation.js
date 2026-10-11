@@ -1,4 +1,5 @@
 'use strict';
+import { installAnnotations } from './annotations.js';
 const deck = new Reveal({
   width: 1280, height: 720, margin: 0.015, minScale: 0.1, maxScale: 3,
   hash: true, history: true, controls: false, progress: true, center: false,
@@ -37,6 +38,7 @@ function setExpanded(panel, expanded) {
   const button = panel.querySelector('.expand-web');
   button.textContent = expanded ? 'Back to slide' : 'Expand webpage';
   button.setAttribute('aria-expanded', String(expanded));
+  document.dispatchEvent(new CustomEvent('tutorial:layout'));
 }
 
 document.querySelectorAll('.web-panel').forEach(panel => {
@@ -70,6 +72,7 @@ fullscreen.addEventListener('click', toggleFullscreen);
 document.addEventListener('fullscreenchange', () => {
   fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
 });
+installAnnotations(deck, notice);
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     const panel = deck.getCurrentSlide()?.querySelector('.is-expanded');
