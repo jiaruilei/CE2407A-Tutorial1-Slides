@@ -4,6 +4,8 @@ const deck = new Reveal({
   width: 1280, height: 720, margin: 0.015, minScale: 0.1, maxScale: 3,
   hash: true, history: true, controls: false, progress: true, center: false,
   transition: 'none', backgroundTransition: 'none', overview: true,
+  // Keep our fixed slide layout, navigation and ink surfaces together on phones.
+  scrollActivationWidth: null,
   keyboard: true, slideNumber: false
 });
 const previous = document.getElementById('previous');
