@@ -7,10 +7,27 @@
   <title>Tutorial 1 · CE2407A</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="reveal.css">
-  <link rel="stylesheet" href="styles.css?v=phone-fullscreen-1">
-  <link rel="stylesheet" href="annotations.css">
+  <link rel="stylesheet" href="annotations.css?v=student-tools-1">
+  <link rel="stylesheet" href="styles.css?v=student-tools-1">
+  <link rel="stylesheet" href="question-viewer.css?v=student-tools-1">
 </head>
 <body>
+<nav class="study-controls" aria-label="Study controls">
+  <div class="question-navigation">
+    <button id="question-menu-toggle" type="button" aria-expanded="false" aria-controls="question-menu" aria-label="Choose question"><span id="current-question">Questions</span><span aria-hidden="true">▾</span></button>
+    <nav id="question-menu" class="question-menu" aria-label="Question navigation" hidden>
+      <a class="menu-home" href="#/slide-1">Tutorial 1</a>
+      <div class="question-menu-row"><span>Q1 <small>Routes</small></span><a href="#/question-1" aria-label="Q1 question">Question</a><a href="#/slide-2" aria-label="Q1 explore">Explore</a></div>
+      <div class="question-menu-row"><span>Q2 <small>Wind</small></span><a href="#/question-2" aria-label="Q2 question">Question</a><a href="#/slide-3" aria-label="Q2 explore">Explore</a></div>
+      <div class="question-menu-row"><span>Q3 <small>Power plant</small></span><a href="#/question-3" aria-label="Q3 question">Question</a><a href="#/slide-4" aria-label="Q3 explore">Explore</a></div>
+      <div class="question-menu-row"><span>Q5 <small>Pavement</small></span><a href="#/question-5" aria-label="Q5 question">Question</a><a href="#/slide-5" aria-label="Q5 explore">Explore</a></div>
+    </nav>
+  </div>
+  <div class="study-actions">
+    <button id="view-question" type="button" hidden>View larger</button>
+    <a id="open-exercise" href="https://jiaruilei.github.io/CE2407A_Tutorial1/" target="_blank" rel="noopener">Open exercises</a>
+  </div>
+</nav>
 <main class="reveal" aria-label="CE2407A Tutorial 1 presentation">
   <div class="slides">
     <section id="slide-1" class="cover" data-title="Tutorial 1" aria-label="Slide 1: Tutorial 1">
@@ -26,19 +43,18 @@
         <p class="cover-author">Assistant Professor Lei Jiarui, Gary<br>Civil and Environmental Engineering<br>National University of Singapore</p>
       </div>
     </section>
-    <section id="question-1" class="question-statement" data-title="Q1 · Question statement" aria-label="Slide 2: Question 1 statement">
+    <section id="question-1" class="question-statement" data-question="1" data-title="Q1 · Question statement" aria-label="Slide 2: Question 1 statement">
       <h1 class="slide-heading">Question 1</h1>
       <img class="question-crop" src="assets/questions/q1-statement.png" width="864" height="208" style="left:98px;top:108px" alt="1. The following figure shows a network of highways connecting cities 1, 2, … and 9. (a) Identify the sample space representing all possible routes between cities 1 and 9. (b) The possible travel times between any two connecting nodes are indicated in the figure. What are the possible travel times through routes 1 → 2 → 9 and 1 → 4 → 6 → 8 → 9?" draggable="false">
       <img class="question-crop" src="assets/questions/q1-diagram.png" width="706" height="382" style="left:286px;top:322px" alt="Original highway network diagram with cities 1 to 9, travel directions and possible travel times" draggable="false">
     </section>
-    <section id="slide-2" data-title="Q1 · Highway routes & travel times" aria-label="Slide 3: Question 1 interactive">
+    <section id="slide-2" data-question="1" data-title="Q1 · Highway routes & travel times" aria-label="Slide 3: Question 1 interactive">
       <h1 class="slide-heading">Q1 · Highway routes &amp; travel times</h1>
       <div class="web-panel">
         <div class="web-toolbar">
           <span class="web-label">Question 1</span>
-          <a class="open-web" href="https://jiaruilei.github.io/CE2407A_Tutorial1/?question=q1" target="_blank" rel="noopener">Open question</a>
-          <button class="reload-web" type="button">Reload</button>
-          <button class="expand-web" type="button" aria-expanded="false">Expand webpage</button>
+          <button class="expand-web" type="button" aria-expanded="false">Enlarge exercise</button>
+          <details class="exercise-options"><summary>More</summary><div class="exercise-menu"><p>Resets this exercise and its chat.</p><button class="reload-web" type="button">Reset exercise</button></div></details>
         </div>
         <div class="web-viewport">
           <div class="web-loading" role="status">Loading question…</div>
@@ -46,20 +62,19 @@
         </div>
       </div>
     </section>
-    <section id="question-2" class="question-statement" data-title="Q2 · Question statement" aria-label="Slide 4: Question 2 statement">
+    <section id="question-2" class="question-statement" data-question="2" data-title="Q2 · Question statement" aria-label="Slide 4: Question 2 statement">
       <h1 class="slide-heading">Question 2</h1>
       <img class="question-crop" src="assets/questions/q2-statement.png" width="864" height="98" style="left:98px;top:132px" alt="2. Strong wind at a particular site may come from any direction between due east (θ = 0°) and due north (θ = 90°). All values of wind speed V are possible. V and θ are represented in polar coordinates." draggable="false">
       <img class="question-crop" src="assets/questions/q2-parts.png" width="864" height="309" style="left:98px;top:263px" alt="(a) Sketch the sample space for wind speed and direction. (b) A = {V &gt; 20 mph}, B = {12 mph &lt; V ≤ 30 mph}, C = {θ ≤ 30°}. Identify A, B, C and the complement of A. (c) Use new sketches to identify D = A ∩ C, E = A ∪ B, F = A ∩ B ∩ C. (d) Are D and E mutually exclusive? How about A and C?" draggable="false">
       <img class="question-crop" src="assets/questions/q2-diagram.png" width="401" height="289" style="left:858px;top:420px" alt="Original polar-coordinate diagram showing wind vector V, angle θ, horizontal component V cos θ and vertical component V sin θ" draggable="false">
     </section>
-    <section id="slide-3" data-title="Q2 · Wind speed & direction" aria-label="Slide 5: Question 2 interactive">
+    <section id="slide-3" data-question="2" data-title="Q2 · Wind speed & direction" aria-label="Slide 5: Question 2 interactive">
       <h1 class="slide-heading">Q2 · Wind speed &amp; direction</h1>
       <div class="web-panel">
         <div class="web-toolbar">
           <span class="web-label">Question 2</span>
-          <a class="open-web" href="https://jiaruilei.github.io/CE2407A_Tutorial1/?question=q2" target="_blank" rel="noopener">Open question</a>
-          <button class="reload-web" type="button">Reload</button>
-          <button class="expand-web" type="button" aria-expanded="false">Expand webpage</button>
+          <button class="expand-web" type="button" aria-expanded="false">Enlarge exercise</button>
+          <details class="exercise-options"><summary>More</summary><div class="exercise-menu"><p>Resets this exercise and its chat.</p><button class="reload-web" type="button">Reset exercise</button></div></details>
         </div>
         <div class="web-viewport">
           <div class="web-loading" role="status">Loading question…</div>
@@ -67,18 +82,17 @@
         </div>
       </div>
     </section>
-    <section id="question-3" class="question-statement" data-title="Q3 · Question statement" aria-label="Slide 6: Question 3 statement">
+    <section id="question-3" class="question-statement" data-question="3" data-title="Q3 · Question statement" aria-label="Slide 6: Question 3 statement">
       <h1 class="slide-heading">Question 3</h1>
       <img class="question-crop" src="assets/questions/q3-statement.png" width="864" height="532" style="left:98px;top:132px" alt="3. A power plant has two generation units. The weekly out-of-service probabilities are P(E₁) = 0.01 and P(E₂) = 0.02. The probability of hot weather is P(H) = 0.10. S is satisfactory when both units function and it is not hot. M is marginal when exactly one unit is out of service and it is not hot. U is unsatisfactory otherwise. H, E₁ and E₂ are independent. (a) Define S, M and U using H, E₁ and E₂. (b) Find the probability exactly one unit is out of service. (c) Find P(S), P(M) and P(U)." draggable="false">
     </section>
-    <section id="slide-4" data-title="Q3 · Power plant reliability" aria-label="Slide 7: Question 3 interactive">
+    <section id="slide-4" data-question="3" data-title="Q3 · Power plant reliability" aria-label="Slide 7: Question 3 interactive">
       <h1 class="slide-heading">Q3 · Power plant reliability</h1>
       <div class="web-panel">
         <div class="web-toolbar">
           <span class="web-label">Question 3</span>
-          <a class="open-web" href="https://jiaruilei.github.io/CE2407A_Tutorial1/?question=q3" target="_blank" rel="noopener">Open question</a>
-          <button class="reload-web" type="button">Reload</button>
-          <button class="expand-web" type="button" aria-expanded="false">Expand webpage</button>
+          <button class="expand-web" type="button" aria-expanded="false">Enlarge exercise</button>
+          <details class="exercise-options"><summary>More</summary><div class="exercise-menu"><p>Resets this exercise and its chat.</p><button class="reload-web" type="button">Reset exercise</button></div></details>
         </div>
         <div class="web-viewport">
           <div class="web-loading" role="status">Loading question…</div>
@@ -86,20 +100,19 @@
         </div>
       </div>
     </section>
-    <section id="question-5" class="question-statement" data-title="Q5 · Question statement" aria-label="Slide 8: Question 5 statement">
+    <section id="question-5" class="question-statement" data-question="5" data-title="Q5 · Question statement" aria-label="Slide 8: Question 5 statement">
       <h1 class="slide-heading">Question 5</h1>
       <img class="question-crop" src="assets/questions/q5-statement.png" width="864" height="58" style="left:98px;top:132px" alt="5. The figure plots test results for degree of subgrade compaction C versus pavement life L. Determine the following probabilities." draggable="false">
       <img class="question-crop" src="assets/questions/q5-parts.png" width="304" height="121" style="left:98px;top:240px" alt="(a) P(20 &lt; L ≤ 40 | C ≥ 70). (b) P(L &gt; 40 | C ≤ 95). (c) P(L &gt; 40 | 70 &lt; C ≤ 95). (d) P(L &gt; 30 and C &lt; 70)." draggable="false">
       <img class="question-crop" src="assets/questions/q5-diagram.png" width="662" height="478" style="left:520px;top:210px" alt="Original scatter plot of 100 test results with degree of compaction in percent and pavement life in months" draggable="false">
     </section>
-    <section id="slide-5" data-title="Q5 · Pavement performance" aria-label="Slide 9: Question 5 interactive">
+    <section id="slide-5" data-question="5" data-title="Q5 · Pavement performance" aria-label="Slide 9: Question 5 interactive">
       <h1 class="slide-heading">Q5 · Pavement performance</h1>
       <div class="web-panel">
         <div class="web-toolbar">
           <span class="web-label">Question 5</span>
-          <a class="open-web" href="https://jiaruilei.github.io/CE2407A_Tutorial1/?question=q5" target="_blank" rel="noopener">Open question</a>
-          <button class="reload-web" type="button">Reload</button>
-          <button class="expand-web" type="button" aria-expanded="false">Expand webpage</button>
+          <button class="expand-web" type="button" aria-expanded="false">Enlarge exercise</button>
+          <details class="exercise-options"><summary>More</summary><div class="exercise-menu"><p>Resets this exercise and its chat.</p><button class="reload-web" type="button">Reset exercise</button></div></details>
         </div>
         <div class="web-viewport">
           <div class="web-loading" role="status">Loading question…</div>
@@ -145,6 +158,6 @@
 </div>
 <div id="notice" role="status" hidden></div>
 <script src="reveal.js"></script>
-<script type="module" src="presentation.js?v=phone-fullscreen-1"></script>
+<script type="module" src="presentation.js?v=student-tools-1"></script>
 </body>
 </html>
