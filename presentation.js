@@ -1,5 +1,6 @@
 'use strict';
 import { installAnnotations } from './annotations.js';
+import { createFullscreenController } from './fullscreen.js';
 const deck = new Reveal({
   width: 1280, height: 720, margin: 0.015, minScale: 0.1, maxScale: 3,
   hash: true, history: true, controls: false, progress: true, center: false,
@@ -59,27 +60,45 @@ function sync() {
   if (panel && !panel.querySelector('iframe').hasAttribute('src')) loadQuestion(panel);
 }
 
-async function toggleFullscreen() {
-  try {
-    if (document.fullscreenElement) await document.exitFullscreen();
-    else await document.documentElement.requestFullscreen();
-  } catch {
-    notice('Use your browser’s full screen command (F11).');
+let fullscreenState;
+const screenController = createFullscreenController({
+  document,
+  onFallback(expanded) {
+    document.body.classList.toggle('is-expanded-view', expanded);
+    if (deck.isReady()) deck.layout();
+    document.dispatchEvent(new CustomEvent('tutorial:layout'));
+  },
+  onChange(state) {
+    fullscreenState = state;
+    const label = state.mode === 'native' ? 'Exit full screen'
+      : state.mode === 'fallback' ? 'Exit view'
+      : state.nativeSupported ? 'Full screen' : 'Expand view';
+    fullscreen.textContent = label;
+    fullscreen.title = state.mode === 'fallback' ? 'Exit expanded view' : label;
+    fullscreen.setAttribute('aria-label', fullscreen.title);
+    fullscreen.setAttribute('aria-pressed', String(state.expanded));
+    fullscreen.disabled = state.pending;
+    if (deck.isReady()) deck.layout();
+    document.dispatchEvent(new CustomEvent('tutorial:layout'));
   }
-}
+});
+const toggleFullscreen = () => screenController.toggle();
 previous.addEventListener('click', () => deck.prev());
 next.addEventListener('click', () => deck.next());
 document.getElementById('overview').addEventListener('click', () => deck.toggleOverview());
 fullscreen.addEventListener('click', toggleFullscreen);
-document.addEventListener('fullscreenchange', () => {
-  fullscreen.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
-});
 installAnnotations(deck, notice);
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     const panel = deck.getCurrentSlide()?.querySelector('.is-expanded');
     if (panel) {
       setExpanded(panel, false);
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return;
+    }
+    if (fullscreenState.mode === 'fallback') {
+      screenController.exit();
       event.preventDefault();
       event.stopImmediatePropagation();
     }

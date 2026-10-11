@@ -2,6 +2,7 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body { background: #151e2c; color: #fff; font-family: Arial, sans-serif; }
+@supports (height: 100dvh) { body { height: 100dvh; } }
 .reveal { height: calc(100% - 54px); background: #151e2c; }
 .reveal .slides { text-align: left; }
 .reveal .slides > section { width: 1280px; height: 720px; padding: 0; overflow: hidden; background: #fff; }
@@ -43,4 +44,20 @@ body { background: #151e2c; color: #fff; font-family: Arial, sans-serif; }
 #counter { min-width: 56px; text-align: center; color: #fff; }
 #notice { position: fixed; bottom: 64px; left: 50%; transform: translateX(-50%); z-index: 60; padding: 12px 18px; max-width: 80vw; background: var(--navy); border-radius: 6px; font: 15px/1.4 Arial, sans-serif; }
 @media (max-width: 480px) { .deck-controls { gap: 4px; } .deck-controls button { padding: 0 7px; font-size: 12px; } .divider { margin: 0; } }
+/* A browser-contained alternative when native full screen is unavailable. */
+body.is-expanded-view { background: #151e2c; }
+.is-expanded-view .reveal { height: calc(100% - 44px - env(safe-area-inset-bottom, 0px)); }
+.is-expanded-view .deck-controls { height: calc(44px + env(safe-area-inset-bottom, 0px)); padding: 4px 7px calc(4px + env(safe-area-inset-bottom, 0px)); }
+.is-expanded-view .deck-controls #overview, .is-expanded-view .deck-controls .divider { display: none; }
+.is-expanded-view #fullscreen { color: #13294b; background: #ed7d31; }
+/* Wide phone screens have room beside the slide for a compact control rail. */
+@media (min-aspect-ratio: 2/1) {
+  .is-expanded-view:not(.ink-toolbar-open) .reveal { height: 100%; width: calc(100% - 72px - env(safe-area-inset-left, 0px)); margin-left: calc(72px + env(safe-area-inset-left, 0px)); }
+  .is-expanded-view:not(.ink-toolbar-open) .deck-controls { left: max(4px, env(safe-area-inset-left, 0px)); top: 50%; bottom: auto; width: 62px; height: auto; transform: translateY(-50%); flex-direction: column; padding: 4px; gap: 5px; border-radius: 6px; }
+  .is-expanded-view:not(.ink-toolbar-open) .deck-controls button { width: 54px; min-height: 36px; height: auto; padding: 6px 2px; font-size: 12px; }
+  .is-expanded-view:not(.ink-toolbar-open) #counter { min-width: 0; }
+}
+.is-expanded-view.ink-toolbar-open .reveal { height: calc(100% - 54px - var(--ink-toolbar-height)); }
+.is-expanded-view.ink-toolbar-open .deck-controls { height: 54px; padding: 7px; }
+.is-expanded-view #notice { bottom: calc(54px + var(--ink-toolbar-height) + env(safe-area-inset-bottom, 0px)); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

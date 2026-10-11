@@ -18,6 +18,8 @@ Open [the presentation](https://jiaruilei.github.io/CE2407A-Tutorial1-Slides/). 
 
 Phones retain the same slide layout and navigation. Rotate to landscape for larger text. Reveal's automatic mobile scroll view is disabled because it reparents slides and breaks this deck's fixed layout and annotation surfaces.
 
+Full screen uses the browser's standard or WebKit fullscreen API when available. If the browser does not support or allow it, **Expand view** uses the available browser window with compact controls. Select **Exit view** to return. On wide screens the controls move beside the slide to leave its full height available. The browser may keep its address bar visible. This mode does not claim to bypass that browser restriction.
+
 Each question supports Expand webpage, Reload and Open question. Leaving a slide preserves its calculations and chat. Reload resets that question.
 
 The live questions need an internet connection. They embed [CE2407A_Tutorial1](https://github.com/jiaruilei/CE2407A_Tutorial1) through its GitHub Pages site, with `question=q1` (or q2, q3, q5) and `embed=1`. The original tutorial handles MathJax and its Render-hosted AI chat. No API keys belong in this repository.
