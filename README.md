@@ -16,11 +16,13 @@ Nine web slides for Tutorial 1, Week 9.
 
 Open [the presentation](https://jiaruilei.github.io/CE2407A-Tutorial1-Slides/). Use the arrow keys or bottom buttons to change slides. Press O for overview and F for full screen. When a question has keyboard focus, use the bottom buttons to change slides.
 
-Phones retain the same slide layout and navigation. Rotate to landscape for larger text. Reveal's automatic mobile scroll view is disabled because it reparents slides and breaks this deck's fixed layout and annotation surfaces.
+The top question menu jumps directly to **Question** or **Explore** for Q1, Q2, Q3 and Q5. Its active item follows arrow navigation and browser history. **Open exercise** opens the current question in the responsive tutorial in a new tab, with normal-sized controls on phones. These study controls stay outside the scaled slides.
+
+Phones retain the same slide layout and navigation. Rotate to landscape for larger text, or use **View larger** on a question statement to open its image viewer. Drag or scroll to pan, use the zoom buttons or select **Fit width**, then **Close** to return. The viewer preserves all crop proportions and leaves slide annotations intact. Reveal's automatic mobile scroll view is disabled because it reparents slides and breaks this deck's fixed layout and annotation surfaces.
 
 Full screen uses the browser's standard or WebKit fullscreen API when available. If the browser does not support or allow it, **Expand view** uses the available browser window with compact controls. Select **Exit view** to return. On wide screens the controls move beside the slide to leave its full height available. The browser may keep its address bar visible. This mode does not claim to bypass that browser restriction.
 
-Each question supports Expand webpage, Reload and Open question. Leaving a slide preserves its calculations and chat. Reload resets that question.
+Interactive slides use a larger panel with a compact heading. **Enlarge exercise** fills the slide, and **Back to slide** restores its layout. **More → Reset exercise** reloads only that exercise and clears its answers and chat. Leaving a slide preserves its calculations and chat.
 
 The live questions need an internet connection. They embed [CE2407A_Tutorial1](https://github.com/jiaruilei/CE2407A_Tutorial1) through its GitHub Pages site, with `question=q1` (or q2, q3, q5) and `embed=1`. The original tutorial handles MathJax and its Render-hosted AI chat. No API keys belong in this repository.
 
