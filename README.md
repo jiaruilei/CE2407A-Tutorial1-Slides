@@ -16,6 +16,8 @@ Nine web slides for Tutorial 1, Week 9.
 
 Open [the presentation](https://jiaruilei.github.io/CE2407A-Tutorial1-Slides/). Use the arrow keys or bottom buttons to change slides. Press O for overview and F for full screen. When a question has keyboard focus, use the bottom buttons to change slides.
 
+Phones retain the same slide layout and navigation. Rotate to landscape for larger text. Reveal's automatic mobile scroll view is disabled because it reparents slides and breaks this deck's fixed layout and annotation surfaces.
+
 Each question supports Expand webpage, Reload and Open question. Leaving a slide preserves its calculations and chat. Reload resets that question.
 
 The live questions need an internet connection. They embed [CE2407A_Tutorial1](https://github.com/jiaruilei/CE2407A_Tutorial1) through its GitHub Pages site, with `question=q1` (or q2, q3, q5) and `embed=1`. The original tutorial handles MathJax and its Render-hosted AI chat. No API keys belong in this repository.
