@@ -20,9 +20,9 @@ The live questions need an internet connection. They embed [CE2407A_Tutorial1](h
 
 Select **Ink** in the bottom controls to open the annotation toolbar. Use Pen or Highlighter with a classroom pen, mouse or touch input. Choose a color and thickness. Eraser removes a whole stroke. Undo, Redo and Clear ink apply to the current slide view. Clearing is undoable.
 
-Choose **Pointer** or press Escape to interact with the question. Ink drawn over the embedded question follows its document as you scroll. Normal and expanded layouts keep separate ink because the question reflows when expanded. Full screen and window resizing preserve alignment. Ink remains visible when the toolbar is closed.
+Choose **Pointer** or press Escape to interact with the question. Ink drawn over the embedded question follows its main page as you scroll. Scrolling inside the chat or other nested panels, and opening content that changes the layout, does not reposition existing ink. Normal and expanded layouts keep separate ink because the question reflows when expanded. Full screen and window resizing preserve alignment. Ink remains visible when the toolbar is closed.
 
-Ink is saved automatically in this browser on this device. It is not synced to GitHub or other computers. If browser storage is unavailable, ink remains available while the tab stays open. Ctrl+Z undoes ink and Ctrl+Y (or Ctrl+Shift+Z) redoes it while the toolbar is open. Text fields retain normal editing shortcuts.
+Ink is saved automatically in this browser on this device. It is not synced to GitHub or other computers. Use one presentation tab when annotating the same slide. If browser storage is unavailable, ink remains available while the tab stays open. Ctrl+Z undoes ink and Ctrl+Y (or Ctrl+Shift+Z) redoes it while the toolbar is open. Text fields retain normal editing shortcuts.
 
 The pen must send normal pen, mouse or touch input to the browser. This feature does not capture webcam video or require camera permission. Test the classroom device before teaching.
 

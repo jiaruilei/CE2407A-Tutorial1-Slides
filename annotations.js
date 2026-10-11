@@ -35,9 +35,18 @@ export function installAnnotations(deck, notice) {
   const currentKey = () => slideKey(currentSlide());
   const inRect = (point, rect) => point.x >= rect.left && point.x <= rect.right && point.y >= rect.top && point.y <= rect.bottom;
 
-  function save() {
+  function save(key) {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(history.serialize()));
+      // Only replace the edited view, preserving saved ink on other slides
+      // if the presentation is also open in another tab.
+      const latest = new InkHistory();
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) latest.load(stored);
+      const payload = latest.serialize();
+      const strokes = history.get(key);
+      if (strokes.length) payload.slides[key] = strokes;
+      else delete payload.slides[key];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
       status.textContent = 'Ink saved in this browser.';
     } catch {
       status.textContent = 'Ink is available for this session only.';
@@ -136,7 +145,7 @@ export function installAnnotations(deck, notice) {
     if (gesture.surface.hasPointerCapture?.(gesture.pointerId)) gesture.surface.releasePointerCapture(gesture.pointerId);
     try {
       const changed = gesture.stroke ? history.add(gesture.key, gesture.stroke) : history.commit(gesture.key, gesture.strokes);
-      if (changed) save();
+      if (changed) save(gesture.key);
     } catch {
       notice('This ink could not be saved. Clear some ink and try again.');
     }
@@ -237,7 +246,7 @@ export function installAnnotations(deck, notice) {
   }));
   function edit(action) {
     finish();
-    if (history[action](currentKey())) save();
+    if (history[action](currentKey())) save(currentKey());
     requestRender();
   }
   undo.addEventListener('click', () => edit('undo'));
